@@ -26,6 +26,14 @@ public class ExecutorClass {
 			File loger = new File(logpath);
 			loger.createNewFile();
 			
+			//creates logger
+			fh = new FileHandler(logpath, true);
+			fh.setFormatter(new SimpleFormatter());
+			fh.setLevel(Level.WARNING);
+			LOGGER.addHandler(fh);
+			
+			
+			
 			//checks or creates folder in path to store files
 			Properties props = new Properties();
 			FileInputStream isr = new FileInputStream(workingDir+"/config.properties");
@@ -34,11 +42,7 @@ public class ExecutorClass {
 			database.mkdirs();
 			String path = props.getProperty("path");
 			
-			//creates logger
-			fh = new FileHandler(logpath, true);
-			fh.setFormatter(new SimpleFormatter());
-			fh.setLevel(Level.WARNING);
-			LOGGER.addHandler(fh);
+			
 			
 			//checks or save data
 			URLConnector urlc = new URLConnector();
