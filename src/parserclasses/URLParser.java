@@ -25,13 +25,13 @@ public class URLParser {
 		for(int i =0; i <files.length;i++){
 			if(vols[i].contains("VOLATILITIES")){
 				files[i] = new File(path+"/ATM VOLATILITIES");	
-				files[i].mkdirs();
+				files[i].mkdirs();//creates separate folder for vols if not exist
 				files[i] = new File(path+"/ATM VOLATILITIES/"+vols[i]);
 				exist = files[i].createNewFile(); // returns true when creates file
 				continue;
 			}
 			files[i] = new File(path+"/25-DELTA RISK REVERSAL");	
-			files[i].mkdirs();
+			files[i].mkdirs();//creates separate folder for rr if not exist
 			files[i] = new File(path+"/25-DELTA RISK REVERSAL/"+vols[i]);
 			exist = files[i].createNewFile(); // returns true when creates file
         }
